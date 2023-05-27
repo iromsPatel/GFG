@@ -1,0 +1,34 @@
+https://practice.geeksforgeeks.org/problems/nth-node-from-end-of-linked-list/1
+
+code
+
+class GfG
+{
+    //Function to find the data of nth node from the end of a linked list.
+    int getNthFromLast(Node head, int n)
+    {
+    	// Your code here	
+    	
+    	   // Take a temporary head copy, to use count
+           Node temp=head;
+           
+           // Count use to find lenght
+           int count=0;
+           while(temp.next!=null){
+               count++;
+               temp=temp.next;
+           }
+           
+           if((n-1)>count){
+               return -1;
+           }
+           
+           if(head!=null){
+               for(int  i=0; i<count-(n-1);i++){
+                   head=head.next;
+               }
+           }
+           int result=head.data;
+           return result;
+       }
+}
